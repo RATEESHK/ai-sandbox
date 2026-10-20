@@ -1,0 +1,26 @@
+name: Bug report
+description: Something aisb did (or did not do) in a project
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes: { label: aisb version, placeholder: "aisb --version" }
+    validations: { required: true }
+  - type: input
+    id: os
+    attributes: { label: OS and shell, placeholder: "Windows 11 / PowerShell 7; macOS 15 / zsh; Ubuntu 24.04 / bash; WSL2" }
+    validations: { required: true }
+  - type: input
+    id: tool
+    attributes: { label: AI tool and version, placeholder: "Claude Code 2.1.x / Cursor 2.x / Gemini CLI 0.x / Antigravity ..." }
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: "Command you ran, what you expected, what you got. Paste the relevant lines of .ai-sandbox/logs/audit.log and the output of `aisb verify`." }
+    validations: { required: true }
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is not a sandbox escape (those go to SECURITY.md / private reporting)
+          required: true

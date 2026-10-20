@@ -1,0 +1,35 @@
+ai-sandbox (aisb) - project-local sandbox for AI coding agents
+Copyright (c) 2026 Rateesh Koganti
+https://github.com/RATEESHK/ai-sandbox
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version, subject to the additional terms below (SPDX: AGPL-3.0-or-later).
+It is also available under a commercial license from the copyright holder: see COMMERCIAL-LICENSE.md.
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+in the file LICENSE for more details.
+
+ADDITIONAL TERMS under section 7 of the GNU Affero General Public License version 3
+
+The licensor adds the following terms to this program and to every covered work based on it. They are
+permitted by section 7, paragraphs (b), (c), (d) and (e), and may not be removed:
+
+1. Attribution (section 7(b)). You must preserve the author attribution
+       "ai-sandbox, created by Rateesh Koganti (https://github.com/RATEESHK/ai-sandbox)"
+   in this NOTICE file, in the source-file headers in which it appears, and in the Appropriate Legal Notices
+   displayed by any covered work that displays such notices (for this program: the output of `aisb --version`).
+   You may add your own attributions next to it; you may not remove, hide or alter it.
+
+2. Modified versions (section 7(c)). A modified version must be marked in reasonable ways as different from
+   the original: at least a different version string, and a prominent notice stating that the work was
+   modified, by whom and when. Do not misrepresent the origin of the material.
+
+3. Names (sections 7(d) and 7(e)). The names "ai-sandbox" and "aisb", the licensor's name and any project logo
+   may not be used for publicity, to name a modified version or a derived product, or to suggest that the
+   licensor endorses it, without the licensor's written permission. No trademark rights are granted.
+
+These terms are compatible with the GNU GPL version 3 (section 7 permits them). A work that combines this
+program with other GPL-3.0 or AGPL-3.0-or-later code keeps these terms for the parts that come from this program.

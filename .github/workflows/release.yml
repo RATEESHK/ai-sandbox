@@ -1,0 +1,62 @@
+name: Release
+# Tag a version to publish: git tag v1.1.0 && git push origin v1.1.0
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    name: build / ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest,   name: linux-x64 }
+          - { os: ubuntu-24.04-arm, name: linux-arm64 }
+          - { os: macos-15-intel,  name: macos-x64 }
+          - { os: macos-latest,    name: macos-arm64 }
+          - { os: windows-latest,  name: windows-x64 }
+          - { os: windows-11-arm,  name: windows-arm64 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build
+        shell: bash
+        run: |
+          python -m venv .build
+          if [ "$RUNNER_OS" = "Windows" ]; then PY=.build/Scripts/python.exe; else PY=.build/bin/python; fi
+          "$PY" -m pip install --quiet pyinstaller
+          "$PY" scripts/build.py pyz
+          "$PY" scripts/build.py binary
+          "$PY" scripts/build.py release
+          ls -la dist/release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.name }}
+          path: dist/release/
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+      - name: Merge assets and checksums
+        run: |
+          mkdir -p release
+          for d in parts/*/; do cp -n "$d"/* release/ 2>/dev/null || true; done
+          cd release && rm -f SHA256SUMS && sha256sum * > SHA256SUMS && cat SHA256SUMS
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*
+          generate_release_notes: true
+          body: |
+            Install (no Python needed): download `aisb-<os>-<arch>` for your machine, unpack it, then run `install.sh` / `install.cmd` **from your project folder**.
+            With Python 3.8+: `python aisb.pyz init` from your project folder. Checksums: `SHA256SUMS`.

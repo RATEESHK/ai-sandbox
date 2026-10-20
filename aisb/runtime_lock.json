@@ -1,0 +1,99 @@
+{
+  "_doc": "Pinned python-build-standalone (astral-sh) releases used by 'aisb runtime python'. SHA256 values come from the release's SHA256SUMS asset.",
+  "source": "https://github.com/astral-sh/python-build-standalone",
+  "tag": "20261013",
+  "default_version": "3.13",
+  "asset_url_prefix": "https://github.com/astral-sh/python-build-standalone/releases/download/20261013",
+  "versions": {
+    "3.12": {
+      "version": "3.12.15",
+      "platforms": {
+        "windows-x64": {
+          "asset": "cpython-3.12.15+20261013-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "sha256": "7a2aef48e5ee569e310b29b32681debbc5d888e92790d85331a47736c6b06aad",
+          "triple": "x86_64-pc-windows-msvc"
+        },
+        "windows-arm64": {
+          "asset": "cpython-3.12.15+20261013-aarch64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "sha256": "864342350eec45119bf295d7af7d60a36842e1c6d181cce760fcc6f60e5a072a",
+          "triple": "aarch64-pc-windows-msvc"
+        },
+        "macos-x64": {
+          "asset": "cpython-3.12.15+20261013-x86_64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "d09998f85752b646873a8a6bc7eea442a0d251b1c8d2413aa8ea06ef131c3335",
+          "triple": "x86_64-apple-darwin"
+        },
+        "macos-arm64": {
+          "asset": "cpython-3.12.15+20261013-aarch64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "9866e11cf2ae9caa1e671383786f248859a52dd8bfb702fb4c0dc2c65f1d36de",
+          "triple": "aarch64-apple-darwin"
+        },
+        "linux-x64": {
+          "asset": "cpython-3.12.15+20261013-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "178d3d83b6e8e99285a65d3fce9c16b87952cc5efdb4d1a0e3ff3be18ff0fc9c",
+          "triple": "x86_64-unknown-linux-gnu"
+        },
+        "linux-arm64": {
+          "asset": "cpython-3.12.15+20261013-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "9467a99bacc7d90b64b02de7fa9ecfc99b72905e64e74f7ff6b460ad95cfed5a",
+          "triple": "aarch64-unknown-linux-gnu"
+        },
+        "linux-musl-x64": {
+          "asset": "cpython-3.12.15+20261013-x86_64-unknown-linux-musl-install_only_stripped.tar.gz",
+          "sha256": "99e53f010e58b62dd5bc849cc4822bde9fff7171c6d020fbe4afed2d861ccc77",
+          "triple": "x86_64-unknown-linux-musl"
+        },
+        "linux-musl-arm64": {
+          "asset": "cpython-3.12.15+20261013-aarch64-unknown-linux-musl-install_only_stripped.tar.gz",
+          "sha256": "efd6e0900431214a9b559803071939421a8a8489375b9be063221a8cfe991c60",
+          "triple": "aarch64-unknown-linux-musl"
+        }
+      }
+    },
+    "3.13": {
+      "version": "3.13.16",
+      "platforms": {
+        "windows-x64": {
+          "asset": "cpython-3.13.16+20261013-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "sha256": "7aba3985d4cee1c7cacb963ca6aa08a5d3e695d7f9609d9fabc56f22ddcf5a06",
+          "triple": "x86_64-pc-windows-msvc"
+        },
+        "windows-arm64": {
+          "asset": "cpython-3.13.16+20261013-aarch64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "sha256": "9c324563049caf05f54d8dedc382621d75e2cd652a19415256681d324009cb67",
+          "triple": "aarch64-pc-windows-msvc"
+        },
+        "macos-x64": {
+          "asset": "cpython-3.13.16+20261013-x86_64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "f507ae04eb7747cd97cb484e8c5d83936cbfc52d9b08a1f35c00b47c707b1ae1",
+          "triple": "x86_64-apple-darwin"
+        },
+        "macos-arm64": {
+          "asset": "cpython-3.13.16+20261013-aarch64-apple-darwin-install_only_stripped.tar.gz",
+          "sha256": "16a5332fb0dcb77f163fc8f8cbccd95be1644cc53e68e5d2a79f50afd6680a0e",
+          "triple": "aarch64-apple-darwin"
+        },
+        "linux-x64": {
+          "asset": "cpython-3.13.16+20261013-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "d0080766b6b74aeb81e1949ef0d9a20e6c17f7b160fb295a69b936ccb17660be",
+          "triple": "x86_64-unknown-linux-gnu"
+        },
+        "linux-arm64": {
+          "asset": "cpython-3.13.16+20261013-aarch64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "sha256": "69a30ed26198178732c37b8de0b6b5191479fbacfe526954da776befe38f18e7",
+          "triple": "aarch64-unknown-linux-gnu"
+        },
+        "linux-musl-x64": {
+          "asset": "cpython-3.13.16+20261013-x86_64-unknown-linux-musl-install_only_stripped.tar.gz",
+          "sha256": "a177ce931ddc616c0e76eebc6a583196739dc704d47af853f5958cb95b2b1c96",
+          "triple": "x86_64-unknown-linux-musl"
+        },
+        "linux-musl-arm64": {
+          "asset": "cpython-3.13.16+20261013-aarch64-unknown-linux-musl-install_only_stripped.tar.gz",
+          "sha256": "9f503edbbfe384c9bf770d99ce787f7aea60bbc6a96ffb3b5933f72c9e71fb6f",
+          "triple": "aarch64-unknown-linux-musl"
+        }
+      }
+    }
+  }
+}

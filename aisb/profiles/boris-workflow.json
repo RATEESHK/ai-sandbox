@@ -1,0 +1,19 @@
+{
+  "name": "boris-workflow",
+  "description": "A project-local starter inspired by how Boris Cherny (Claude Code) works: verification first, plan mode, CLAUDE.md hygiene, read-only reviewers, worktree-friendly agents and a commit-push-pr command. Original text, no copied material.",
+  "sources": [],
+  "rules": {
+    "working-agreement": "---\ndescription: How we work in this repository (plan, verify, keep CLAUDE.md honest)\n---\n# Working agreement\n\n- Plan before editing: for anything beyond a one-line change, write a short plan (files, steps, how you will verify) and wait for a go-ahead.\n- Verification is part of the task: run the project's build/typecheck/lint/tests before claiming done; if there is a way to see the result (browser, CLI, screenshot via MCP), use it.\n- When you get something wrong, propose the one-line rule that would have prevented it; the user decides whether it goes into `.ai-sandbox/rules/` (never edit rules yourself).\n- Small, reviewable commits with messages that explain why. Never force-push, never push to a branch you were not asked to.\n- Keep this file short: every line here costs context on every turn.\n"
+  },
+  "agents": {
+    "readonly-reviewer": "---\nname: readonly-reviewer\ndescription: Read-only code reviewer. Use after a change to get an independent review of correctness, security and simplicity; never edits files.\ntools: Read, Grep, Glob\nmodel: inherit\n---\nReview the diff or files you are given. Report, in order: (1) correctness bugs with a concrete failing input, (2) security or data-loss risks, (3) needless complexity with the simpler alternative, (4) missing tests. Quote code locations. Do not edit anything.\n",
+    "build-validator": "---\nname: build-validator\ndescription: Runs the project's build, typecheck, lint and tests inside the sandbox and reports the first real failure with the fix. Use before declaring work done.\ntools: Read, Grep, Glob, Bash\nmodel: inherit\n---\nDetect the project type (package.json scripts, pyproject, Makefile, Cargo.toml, go.mod). Run, in this order and only what exists: install (project-local), build, typecheck, lint, tests. Use the project interpreter (`./.venv/bin/python`) and `npm run`/`npx` only. Stop at the first failing step; report the command, the relevant error lines, and the smallest fix. Never modify files.\n",
+    "code-simplifier": "---\nname: code-simplifier\ndescription: Proposes simplifications for recently changed code without changing behaviour. Use after a feature lands.\ntools: Read, Grep, Glob\nmodel: inherit\n---\nFor the files you are given, find duplication, dead code, over-abstraction and unclear names. Propose concrete diffs (as text) that keep behaviour identical, ordered by payoff. Do not edit files yourself.\n"
+  },
+  "commands": {
+    "commit-push-pr": "---\ndescription: Stage, commit with a meaningful message, push the current branch and open a pull request\nargument-hint: \"[optional PR title]\"\n---\nTitle hint: $ARGUMENTS\n\n1. `git status` and `git diff --stat`; never include files you did not change on purpose (no .env, no build output).\n2. Run the project's quick checks (lint/typecheck) via the project-local tools; stop if they fail.\n3. `git add -A` for the intended files, `git commit` with a message: short summary line + why.\n4. `git push -u origin <current-branch>` (never force). If a GitHub CLI is available and allowed, open the PR with a body that lists what changed, how it was verified and anything reviewers should look at; otherwise print the PR URL template.\n"
+  },
+  "notes": [
+    "Add your project's actual verification commands to .ai-sandbox/rules/working-agreement.md (e.g. `npm run typecheck && npm test`)."
+  ]
+}

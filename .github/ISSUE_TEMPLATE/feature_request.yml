@@ -1,0 +1,11 @@
+name: Feature / new target / profile
+description: Propose a new tool target, a profile (bundle recipe) or a command
+labels: [enhancement]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: Proposal, description: "What should aisb do, and how does it stay project-local?" }
+    validations: { required: true }
+  - type: textarea
+    id: sources
+    attributes: { label: Sources and licenses, description: "For profiles: the repositories you want included and their licenses." }

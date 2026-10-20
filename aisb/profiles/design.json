@@ -1,0 +1,72 @@
+{
+  "name": "design",
+  "description": "Design & UI skill packs for AI coding agents (UI craft, UX, design systems, motion, accessibility) + browser MCP servers, all project-local.",
+  "sources": [
+    {
+      "source": "github:ibelick/ui-skills",
+      "name": "ui-skills",
+      "only": "skills",
+      "note": "ui-skills.com registry (Julien Thibeaut, MIT): baseline-ui, improve-ui, create-design-md, fixing-accessibility, fixing-motion-performance, component-canvas ..."
+    },
+    {
+      "source": "github:Gustavosilveira23/claude-design-skills",
+      "name": "claude-design-skills",
+      "note": "MIT: ui-designer, ux-designer, ux-research, design-system, creative-coding, figma-craft + /design-review etc. and the design-review agent"
+    },
+    {
+      "source": "github:anthropics/skills/skills/frontend-design",
+      "name": "frontend-design",
+      "only": "skills",
+      "note": "Anthropic frontend-design skill (Apache-2.0)"
+    },
+    {
+      "source": "github:julianoczkowski/designer-skills",
+      "name": "designer-skills",
+      "only": "skills",
+      "note": "7 skills following a real design process (Apache-2.0)"
+    },
+    {
+      "source": "github:vercel-labs/agent-skills",
+      "name": "vercel-agent-skills",
+      "only": "skills",
+      "note": "Vercel: web-design-guidelines, react-best-practices ... (MIT per README)"
+    },
+    {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "name": "ui-ux-pro-max",
+      "only": "skills",
+      "note": "UI/UX Pro Max (MIT)"
+    },
+    {
+      "source": "github:pbakaus/impeccable",
+      "name": "impeccable",
+      "only": "skills,commands",
+      "note": "Impeccable design skills (Apache-2.0)"
+    }
+  ],
+  "mcp": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Browser automation for visual checks (browsers download into .ai-sandbox/cache/ms-playwright)"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "description": "Chrome DevTools protocol access for performance/accessibility audits"
+    }
+  },
+  "rules": {
+    "design-workflow": "---\ndescription: How to use the design skill packs in this project\n---\n# Design workflow\n\n- Before UI work, read `DESIGN.md` at the project root if it exists (create it with the `create-design-md` skill); it is the single source of truth for tokens, type scale, spacing, motion and voice.\n- Start from `baseline-ui` for any new screen, then `improve-ui` / `ui-designer` for craft, `fixing-accessibility` before shipping, `fixing-motion-performance` for anything animated.\n- Use the `playwright` MCP server to look at what you built (screenshots, console errors) instead of guessing; use `chrome-devtools` for performance and accessibility audits.\n- Never install design tooling globally: `npm install -D <pkg>` inside the project; Playwright browsers go to `.ai-sandbox/cache/ms-playwright` automatically.\n- Keep component APIs small, prefer system tokens over magic numbers, and write the reasoning for a visual decision in the PR/commit message.\n"
+  },
+  "notes": [
+    "Third-party skills keep their own licenses (MIT / Apache-2.0); see .ai-sandbox/bundles/bundles.lock.json.",
+    "Run `aisb sync` (done automatically) then start your tool; skills appear as /<name> in Claude Code and are auto-discovered by Cursor, Copilot, Gemini CLI and Antigravity."
+  ]
+}

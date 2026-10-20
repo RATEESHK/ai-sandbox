@@ -1,0 +1,16 @@
+name: Tool format change
+description: A tool renamed or changed a project config path, hook schema, ignore file or MCP format
+labels: [target, tool]
+body:
+  - type: input
+    id: tool
+    attributes: { label: Tool and version }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Vendor documentation URL that shows the new format }
+    validations: { required: true }
+  - type: textarea
+    id: change
+    attributes: { label: Old vs new, description: "Paths, JSON keys, event names, frontmatter keys. Sample payloads are gold." }
+    validations: { required: true }

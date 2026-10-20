@@ -1,0 +1,20 @@
+{
+  "name": "voice",
+  "description": "Voice-mode and dictation instructions (how the assistant should treat spoken input and answer when you are talking, not typing) + Claude Code voice dictation enabled for this project.",
+  "sources": [],
+  "rules": {
+    "dictation": "---\ndescription: How to interpret dictated (voice) input\n---\n# Dictation instructions\n\nSome prompts arrive through voice dictation. Treat them as spoken language, not as literal text:\n- Ignore filler words (um, uh, like, you know) and self-corrections; keep the final intent.\n- Infer punctuation and casing. Spoken \"new line\"/\"new paragraph\" mean line breaks; \"open paren ... close paren\" mean brackets; \"quote ... end quote\" mean quotation marks.\n- Spoken identifiers: \"camel case user name\" -> `userName`, \"snake case max retries\" -> `max_retries`, \"dot env\" -> `.env`, \"dash dash force\" -> `--force`, \"slash\" -> `/`.\n- Spoken numbers become digits; \"version three point twelve\" -> `3.12`.\n- Homophones in a coding context: \"write\" vs \"right\", \"two\"/\"to\", \"four\"/\"for\" - pick the code-meaningful one and say which you assumed.\n- If a dictated instruction would run a command, delete files, or touch git history, repeat it back in one line and wait for an explicit yes.\n- When a transcription is ambiguous, ask a single short clarifying question instead of guessing.\n",
+    "voice-mode": "---\ndescription: How to respond while the user is in voice mode\n---\n# Voice-mode instructions\n\nWhen the user is interacting by voice (voice mode on, or they say so):\n- Answer first in one or two spoken-friendly sentences; details after, in short bullets.\n- Do not read long code aloud: write the code to a file or the chat, then say what it does and where it is.\n- Avoid tables, ASCII art, long paths and hex strings in the spoken part; say \"I put the path in the chat\".\n- Confirm before destructive or irreversible actions with a yes/no question.\n- Use the project's words (file names, feature names) exactly as the user says them; do not rename things.\n- Keep status updates to one line while working; offer the next step at the end.\n"
+  },
+  "claude_settings_local": {
+    "voice": {
+      "enabled": true,
+      "mode": "tap",
+      "autoSubmit": false
+    }
+  },
+  "notes": [
+    "Claude Code: toggle with /voice (modes hold | tap | off); the push-to-talk key is rebindable in ~/.claude/keybindings.json (yours to edit, not aisb's). Dictation language follows the `language` setting.",
+    "Antigravity CLI: /voice or F5. Cursor: Voice Mode in Settings > Voice (submit keywords). These tools have no 'dictation instruction' setting, so the rules above are delivered as project instructions instead."
+  ]
+}

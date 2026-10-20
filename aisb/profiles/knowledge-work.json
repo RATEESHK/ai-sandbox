@@ -1,0 +1,20 @@
+{
+  "name": "knowledge-work",
+  "description": "Anthropic's knowledge-work plugins (Apache-2.0), project-local: productivity + engineering + design by default; add others with --plugin.",
+  "sources": [
+    {
+      "source": "github:anthropics/knowledge-work-plugins",
+      "name": "knowledge-work-plugins",
+      "plugins": [
+        "productivity",
+        "engineering",
+        "design"
+      ],
+      "note": "Marketplace with 20+ plugins; MCP connectors inside them are imported disabled until you enable them."
+    }
+  ],
+  "notes": [
+    "Enable a plugin's MCP connectors by setting \"enabled\": true in .ai-sandbox/mcp/servers.json, then `aisb sync`.",
+    "Other plugins: aisb apply github:anthropics/knowledge-work-plugins --plugin sales,legal,finance"
+  ]
+}

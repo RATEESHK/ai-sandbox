@@ -1,0 +1,42 @@
+{
+  "name": "motion-design",
+  "description": "Motion-design studio setup (Remotion, HyperFrames, animation skills) as a project-local, sandboxed equivalent of the popular 'Opus 5.5 motion design studio' course.",
+  "sources": [
+    {
+      "source": "github:remotion-dev/skills",
+      "name": "remotion-skills",
+      "only": "skills",
+      "note": "Remotion agent skills (/remotion-create, /remotion-render ...)"
+    },
+    {
+      "source": "github:heygen-com/hyperframes",
+      "name": "hyperframes",
+      "only": "skills",
+      "note": "HyperFrames router + GSAP skills"
+    },
+    {
+      "source": "github:buildwithhanif/claude-animation-skill",
+      "name": "claude-animation",
+      "note": "Claude animation plugin/marketplace"
+    }
+  ],
+  "mcp": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Preview renders in a real browser"
+    }
+  },
+  "rules": {
+    "motion-studio-setup": "---\ndescription: Project-local motion studio setup (no global installs)\n---\n# Motion studio - project-local setup\n\nThe public course installs node, ffmpeg and python with Homebrew and `npx skills add ... -g`. In this sandbox everything is local:\n\n- Node packages: `npm init -y` (once), then `npm i -D playwright remotion @remotion/cli` and `npx playwright install chromium` (browsers land in `.ai-sandbox/cache/ms-playwright`).\n- ffmpeg without a system package: `npm i -D ffmpeg-static` (exposes a project-local binary) or `./.venv/bin/python -m pip install imageio-ffmpeg`.\n- Python audio analysis: `./.venv/bin/python -m pip install numpy librosa soundfile` (Windows: `.\\.venv\\Scripts\\python.exe -m pip ...`).\n- Render with `npx remotion render <Composition> out/<name>.mp4`; preview with `npx remotion studio`. HyperFrames: `npx hyperframes init`, `npx hyperframes render`.\n- Never `brew install`, `pip install --user`, `npm i -g`, or `npx skills add -g`; the guard blocks them. Skills are already imported project-locally.\n- Package your own pipeline as a skill: `aisb add skill motion-reel --from ./my-skill-dir`, then `aisb pack` to share it.\n"
+  },
+  "commands": {
+    "motion-reel": "---\ndescription: Produce a short motion reel from a brief (spec -> scenes -> render)\nargument-hint: \"<brief or script file>\"\n---\nYou are the motion director for this project. Input: $ARGUMENTS\n\n1. Read DESIGN.md (brand, type, motion tokens) if present.\n2. Write a shot list (scene, duration, easing/spring, sound cue) and get confirmation.\n3. Implement with the Remotion/HyperFrames skills; keep everything inside this folder; render to out/.\n4. Open the render with the playwright MCP server and critique it against the shot list; iterate twice.\n5. Summarize what changed and the final render path.\n"
+  },
+  "notes": [
+    "Check each source's license in .ai-sandbox/bundles/bundles.lock.json before redistributing a bundle built from it."
+  ]
+}

@@ -1,0 +1,17 @@
+# build outputs
+dist/
+build/
+*.spec
+__pycache__/
+*.py[cod]
+.build/
+.pytest_cache/
+# local experiments: never commit a sandboxed project into the tool repo
+/.ai-sandbox/
+/.venv/
+/.venv*/
+*.aisb.zip
+# editor noise
+.DS_Store
+Thumbs.db
+.idea/

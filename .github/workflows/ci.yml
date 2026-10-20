@@ -1,0 +1,99 @@
+name: CI
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["**.md", "docs/**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    name: ${{ matrix.os }} / py${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.9", "3.12"]
+        include:
+          - os: ubuntu-latest
+            python: "3.8"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Lint (pyflakes) and grammar check (Python 3.8)
+        if: matrix.python == '3.12' && runner.os == 'Linux'
+        run: |
+          python -m pip install --quiet pyflakes
+          python -m pyflakes aisb scripts tests
+          python - <<'PY'
+          import ast, glob
+          for f in glob.glob("aisb/*.py") + glob.glob("scripts/*.py"):
+              ast.parse(open(f, encoding="utf-8").read(), feature_version=(3, 8))
+          print("3.8 grammar ok")
+          PY
+          python scripts/set_license.py --check   # LICENSE, NOTICE, LICENSING.md, headers... match the recorded variant
+      - name: Unit + end-to-end tests
+        run: python -m unittest discover -s tests -v
+      - name: Bootstrap scripts (Python path)
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/boot proj" && cd "$RUNNER_TEMP/boot proj"
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            cmd //c "\"$GITHUB_WORKSPACE\\install.cmd\" init --no-os-sandbox --skip-verify"
+            cmd //c "\"$GITHUB_WORKSPACE\\install.cmd\" verify --quick"
+            powershell -NoProfile -ExecutionPolicy Bypass -File "$GITHUB_WORKSPACE/install.ps1" status
+            cmd //c ".ai-sandbox\\bin\\aisb.cmd status"
+          else
+            sh "$GITHUB_WORKSPACE/install.sh" init --no-os-sandbox --skip-verify
+            sh "$GITHUB_WORKSPACE/install.sh" verify --quick
+            ./.ai-sandbox/bin/aisb status
+          fi
+      - name: Build zipapp and run it
+        shell: bash
+        run: |
+          python scripts/build.py pyz
+          mkdir -p "$RUNNER_TEMP/pyz proj" && cd "$RUNNER_TEMP/pyz proj"
+          python "$GITHUB_WORKSPACE/dist/aisb.pyz" init --no-os-sandbox --skip-verify
+          python "$GITHUB_WORKSPACE/dist/aisb.pyz" verify --quick
+  standalone:
+    name: standalone build smoke / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build with PyInstaller (scratch venv, nothing global)
+        shell: bash
+        run: |
+          python -m venv .build
+          if [ "$RUNNER_OS" = "Windows" ]; then PY=.build/Scripts/python.exe; else PY=.build/bin/python; fi
+          "$PY" -m pip install --quiet pyinstaller
+          "$PY" scripts/build.py binary
+          "$PY" scripts/build.py release
+      - name: Run the standalone build with Python hidden from PATH
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/nopy" && cd "$RUNNER_TEMP/nopy"
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            tar -xf "$GITHUB_WORKSPACE/dist/release/aisb-windows-x64.zip"
+            ./aisb-bin/aisb.exe init --no-venv --skip-verify
+            ./aisb-bin/aisb.exe verify --quick
+          else
+            tar -xzf "$GITHUB_WORKSPACE"/dist/release/aisb-*-*.tar.gz
+            env -i PATH=/usr/bin:/bin HOME="$HOME" ./aisb-bin/aisb init --skip-verify
+            env -i PATH=/usr/bin:/bin HOME="$HOME" ./.ai-sandbox/bin/aisb verify --quick
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: standalone-${{ matrix.os }}
+          path: dist/release/
+          retention-days: 7

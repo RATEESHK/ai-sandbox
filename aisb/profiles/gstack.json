@@ -1,0 +1,15 @@
+{
+  "name": "gstack",
+  "description": "Garry Tan's gstack skill suite (MIT) imported as skill documents only. gstack's own ./setup installs globally under ~/.claude and needs Bun; that part is intentionally not done.",
+  "sources": [
+    {
+      "source": "github:garrytan/gstack",
+      "name": "gstack",
+      "only": "skills",
+      "note": "57 SKILL.md folders; helper binaries under bin/ are not installed (global by design)"
+    }
+  ],
+  "notes": [
+    "If you want the full gstack runtime, run its ./setup yourself outside the sandbox; it writes to ~/.claude (global)."
+  ]
+}

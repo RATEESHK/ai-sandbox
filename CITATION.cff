@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "ai-sandbox: project-local sandbox for AI coding agents"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Koganti
+    given-names: Rateesh
+repository-code: "https://github.com/RATEESHK/ai-sandbox"
+license: AGPL-3.0-or-later
+version: 1.1.0
+date-released: 2026-10-21
+keywords:
+  - ai-agents
+  - sandbox
+  - claude-code
+  - cursor
+  - gemini-cli
+  - github-copilot
+  - antigravity
+  - mcp
+  - agent-skills
+  - developer-security
