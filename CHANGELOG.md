@@ -18,11 +18,12 @@ All notable changes to ai-sandbox are documented here. The format follows
 - Project-local Python runtime (`aisb runtime python`) from pinned python-build-standalone builds with
   SHA256 verification.
 - Standalone builds (PyInstaller onedir) and bootstraps that work with only `cmd.exe` or POSIX `sh`.
-- Dual license: GNU AGPL-3.0-or-later with attribution terms (`NOTICE`, GPL section 7) **or** a commercial
-  license whose fee can be replaced by contributing to / maintaining the project (`COMMERCIAL-LICENSE.md`,
-  `LICENSING.md`). `scripts/set_license.py agpl|gpl|apache|noncommercial|strict` regenerates every
-  license-related file and the SPDX headers of all source files. Governance document, CLA workflow, `ADOPTERS.md`;
-  `aisb --version` prints the attribution.
+- Apache-2.0 license with attribution in `NOTICE` (section 4(d)) and a trademark policy (`TRADEMARKS.md`):
+  the code is free to use and fork, the names "ai-sandbox" / "aisb" are not. Open-core plan: team and
+  enterprise components ship separately under a commercial license (`COMMERCIAL-LICENSE.md`).
+  `scripts/set_license.py agpl|gpl|apache|noncommercial|strict` regenerates every license-related file and
+  the SPDX headers of all source files. Governance document, CLA workflow, `ADOPTERS.md`; `aisb --version`
+  prints the attribution.
 
 ### Changed
 - Renamed the manager from `sandbox_manager.py` to the `aisb` package; `.ai-sandbox/bin/aisb{,.cmd,.ps1}`

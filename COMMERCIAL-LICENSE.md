@@ -1,50 +1,29 @@
-# Commercial license
+# Commercial use, support and sponsorship
 
-ai-sandbox is free and open source under the GNU Affero General Public License v3.0 or later (`LICENSING.md` explains the whole scheme). **You only
-need a commercial license if you want to do something the AGPL does not allow** — most teams never do.
+ai-sandbox is open source under the Apache License 2.0. **No commercial license exists or is needed**: companies
+may use, modify, redistribute and sell it, in open or proprietary products, as long as they keep `LICENSE`,
+include the attribution in `NOTICE` (section 4(d)) and mark modified files (`LICENSING.md`).
 
-## Do you need one?
+## Open core: what stays commercial
 
-| Situation | AGPL (free) | Commercial license |
-|---|---|---|
-| Using ai-sandbox at your company, on client projects, in CI, on any number of machines | free | — |
-| Committing the installed files into private or public repositories | free | — |
-| Private modifications used only inside your organisation | free (nothing to publish) | — |
-| Publishing a fork or a modified version under the AGPL, with source, marked as modified | free | — |
-| Bundling it **unmodified** in a product, template, course, image or installer, with `LICENSE` + `NOTICE` and the source available | free | — |
-| Offering a **modified** version as part of a hosted service and giving its users the modified source | free | — |
-| Offering a **modified** version as part of a hosted service **without** offering its users the source | — | needed |
-| Bundling a **modified** version in a product without releasing its source under the AGPL | — | needed |
-| Combining it into one program with proprietary code and distributing that | — | needed |
-| A signed agreement, warranty, indemnity or support commitment for procurement | — | available |
+The local CLI and guard are Apache-2.0 and stay that way. Team and enterprise components built later
+(central policy server, signed policy distribution, audit-log export to SIEM / OpenTelemetry, SSO, org
+dashboard, compliance evidence reports) are **not** part of this repository and are offered under a separate
+commercial license by the maintainer.
 
-## Two ways to get a commercial license: pay, or contribute
+## What the maintainer offers organisations
 
-The copyright holder grants commercial licenses in exchange for **either**:
+- **Support and maintenance agreements** — a named target (tool) kept working, response times, upgrades.
+- **A signed agreement, warranty or indemnity** for procurement, where the Apache License's "AS IS" terms are not enough.
+- **Sponsorship** — it funds the time that keeps 15+ tool formats verified against vendor docs.
+- **Contribution plans** — organisations that maintain a target, provide CI runners or security review, or
+  contribute features get their needs prioritised.
 
-1. **A license fee** — yearly, per organisation, sized to the organisation (team / company / enterprise), or per
-   product for OEM and bundling deals; **or**
-2. **A contribution plan** — the fee is waived for organisations that help maintain the project in a way agreed
-   in writing, for example: maintaining one or more targets in `aisb/targets.py` and their CI jobs, contributing
-   features or fixes upstream, writing and maintaining docs or profiles, providing CI runners or code-signing
-   infrastructure, security review, user support, or sponsorship. The maintainer decides which contributions
-   qualify and reviews the plan once a year.
+Open an issue titled **"Commercial support request"** on the repository or contact the maintainer via the URL in
+`NOTICE`. Organisations that use ai-sandbox are asked (not required) to add themselves to `ADOPTERS.md`.
 
-Commercial licensees agree to tell the maintainer where ai-sandbox is used (product, service or internal
-platform) and are listed in `ADOPTERS.md` unless they opt out.
-
-## How to request one
-
-Open an issue titled **"Commercial license request"** on the repository, or contact the copyright holder via the
-URL in `NOTICE`. Say:
-
-1. who you are (company / individual),
-2. what you want to do (product component, modified version, redistribution, hosting, internal use),
-3. the number of developers, seats or products, if relevant,
-4. whether you want to pay or to contribute, and what you could contribute.
-
-Licenses are granted in writing by the copyright holder, Rateesh Koganti, who retains all rights to license,
-sublicense and relicense ai-sandbox. Contributions are accepted under `CLA.md`, which keeps that possible.
+Contributions are accepted under `CLA.md`; the copyright holder, Rateesh Koganti, retains the right to offer the
+project under other licenses in the future.
 
 ## Third-party content
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """Host detection: OS, WSL, Git Bash, admin, available tools, how this program is running (source / zipapp / frozen)."""
 from __future__ import annotations

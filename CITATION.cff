@@ -6,7 +6,7 @@ authors:
   - family-names: Koganti
     given-names: Rateesh
 repository-code: "https://github.com/RATEESHK/ai-sandbox"
-license: AGPL-3.0-or-later
+license: Apache-2.0
 version: 1.1.0
 date-released: 2026-10-21
 keywords:

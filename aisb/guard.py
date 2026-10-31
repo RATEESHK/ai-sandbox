@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """
 aisb guard  -  pre/post tool-call firewall + audit logger for AI coding tools (part of ai-sandbox).

@@ -1,73 +1,37 @@
 # How ai-sandbox is licensed
 
-ai-sandbox is **dual-licensed**. You may use it under either of these, at your choice:
+ai-sandbox is open source under the **[Apache License 2.0](LICENSE)** (`Apache-2.0`). There is nothing else to
+buy or to ask for: everyone — individuals and companies — may use, modify, redistribute and sell it, in open or
+proprietary products, as long as they follow the license.
 
-1. **Open source — the [GNU Affero General Public License v3.0 or later](LICENSE)** (`AGPL-3.0-or-later`), with the additional attribution terms in
-   [`NOTICE`](NOTICE). Free of charge for anyone and any purpose, including commercial use, as long as you follow
-   the license; or
-2. **A [commercial license](COMMERCIAL-LICENSE.md)** from the copyright holder, for organisations that cannot or
-   do not want to comply with the AGPL's conditions (typically: shipping a modified version closed).
-
-SPDX expression: `AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial`. The files `aisb` installs into your projects (guard hook, launchers) carry it as a header.
-
-## What you can do under the open-source license, free of charge
+## What the license asks of you
 
 | You want to… | Allowed? | What the license asks of you |
 |---|---|---|
-| Use it on your projects, at work, for clients, inside your company, in CI | yes | nothing beyond keeping the notices in the files |
-| Commit the files it installs (`.ai-sandbox/`, hook scripts) into your repository and share that repository with your team or publicly | yes | the files keep their headers (they already do); keep `LICENSE` and `NOTICE` with full copies |
-| Modify it for yourself or inside your company | yes | nothing — private changes never have to be published as long as you do not distribute them or (AGPL only) let others use the modified version over a network |
-| Redistribute it unmodified (mirror, package, bundle it in a template, course, image or installer) | yes | ship `LICENSE` and `NOTICE` with it and make the source available (section 6) |
-| Publish a fork, a modified version or a derived tool | yes | license it `AGPL-3.0-or-later`, publish the complete source, mark it as modified, keep the attribution, and do not call it ai-sandbox / aisb (`NOTICE`) |
-| Run a **modified** version as a service that other people use over a network (hosted IDE, CI service, platform) | yes | offer those users the complete source of your modified version under the same license (AGPL section 13) |
-| Ship a modified version inside a proprietary product, or distribute / host a modified version without publishing its source | **no** — not under the AGPL | get a [commercial license](COMMERCIAL-LICENSE.md): pay, or contribute instead |
-| Combine it into one program with proprietary code and distribute that | **no** — not under the AGPL | commercial license |
+| Use it anywhere, including at work and in proprietary products | yes | nothing |
+| Commit the installed files into your repositories and share them | yes | the files keep their headers (they already do) |
+| Redistribute it, modified or not, in source or binary form | yes | include `LICENSE`; include the attribution in [`NOTICE`](NOTICE) (section 4(d)); state in modified files that you changed them; keep the copyright and license notices |
+| Publish a fork or a derived tool | yes | same as above, under **its own name** (section 6 grants no trademark rights; see [TRADEMARKS.md](TRADEMARKS.md)) |
+| Make a closed-source product out of it | yes | same as above — Apache-2.0 has no copyleft |
 
-## Attribution — the additional terms in `NOTICE`
+## Attribution
 
-Section 7 of the GNU GPL v3 lets a licensor add a small number of terms to the license. ai-sandbox adds three,
-stated verbatim in [`NOTICE`](NOTICE): the author attribution must be preserved (7(b)), modified versions must
-be marked as modified (7(c)), and the project's names may not be used to name or endorse derived versions
-(7(d), 7(e)). In practice:
-
-- keep the `NOTICE` file and the two header lines in the source files;
-- if you redistribute a build, keep the "ai-sandbox, created by Rateesh Koganti (https://github.com/RATEESHK/ai-sandbox)" line in the output of `aisb --version` (or your
-  equivalent);
-- if you modify it, say so, change the version string, and give your version another name.
-
-These terms are compatible with the GPL and AGPL (section 7 explicitly permits them) and travel with the
-code into anything built on it.
+Section 4(d) of the Apache License requires every redistribution to carry the contents of [`NOTICE`](NOTICE),
+which names the author: "ai-sandbox, created by Rateesh Koganti (https://github.com/RATEESHK/ai-sandbox)". The source files carry a two-line header pointing to it, and
+`aisb --version` prints it.
 
 ## For companies
 
-Using ai-sandbox at work is free, with no notification, registration or permission required — the license
-already grants it. A **commercial license** is only needed when you want to do something the AGPL does
-not allow (the two "no" rows above), or when procurement wants a signed agreement, warranty or indemnity.
-It can be paid for with **money or with maintenance**: an organisation that contributes code, maintains a
-target, provides CI or support, or sponsors the project gets the commercial license without a fee. Details and
-the request procedure: [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md).
+No commercial license exists or is needed. Companies that want support, maintenance of a particular target,
+a signed agreement for procurement, or simply to keep the project alive can sponsor it or contribute to it:
+see [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md).
 
 ## Why this license
 
-- **Adoption.** `AGPL-3.0-or-later` is OSI-approved and known to every corporate legal team; nobody has to ask before
-  using the tool, and package indexes, SBOM tools and GitHub recognise it.
-- **Acknowledgement.** Every copy, fork and derived product carries the author attribution (`NOTICE`,
-  file headers, `aisb --version`), and modified versions must say that they are modified.
-- **Contributions flow back.** Anyone who improves and redistributes it must publish the improvements under the
-  same license. Forks are allowed, but they stay open and keep the attribution.
-- **Sustainability.** Organisations that want to go beyond the AGPL pay for a commercial license or
-  maintain the project instead; the CLA keeps dual licensing possible.
-
-What this license deliberately does **not** do: it does not require anyone to inform the author or ask
-permission (no open-source license can — see the Open Source Definition, points 5–7), it does not forbid forks,
-and it puts no obligation on companies that only use the tool internally. The `ADOPTERS.md` request and the
-commercial license are the levers for those cases.
-
-## Switching
-
-`python scripts/set_license.py agpl|gpl|apache|noncommercial|strict` regenerates every license-related file and
-source header. A later, more restrictive license applies to future versions only; copies already received under
-`AGPL-3.0-or-later` keep that license forever.
+Apache-2.0 maximises adoption: it is the license most corporate policies allow without review, it carries a
+patent grant, and it is compatible with almost everything. The trade-off is that it gives the author no lever
+over proprietary forks beyond attribution. The maintainer can switch to a copyleft dual-license model at any
+time for future versions (`python scripts/set_license.py agpl`); copies already received under Apache-2.0 keep it.
 
 ## Contributions and the CLA
 

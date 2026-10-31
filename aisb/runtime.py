@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """Project-local Python runtime: downloads a pinned python-build-standalone build into .ai-sandbox/runtime/python
 and creates .venv from it. Nothing is installed globally; the download is verified against a pinned SHA256."""

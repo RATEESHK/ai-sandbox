@@ -26,11 +26,10 @@ this file.
 ## Forks, modified versions, names
 
 <!-- license-governance -->
-The license (`LICENSE` + `NOTICE`) allows forks and modified versions, under conditions: they stay under the same
-license with their source published, they are marked as modified, they keep the author attribution, and they are
-not called "ai-sandbox" or "aisb". The canonical distribution is this repository and its signed releases
-(`SHA256SUMS`). Shipping a modified version closed, or inside a proprietary product, needs a commercial license
-(`COMMERCIAL-LICENSE.md`).
+The license (`LICENSE` + `NOTICE`) allows forks, modified versions and proprietary derivatives as long as the
+license and the attribution notice travel with them and modified files are marked. Please do not call a modified
+version "ai-sandbox" or "aisb" ([TRADEMARKS.md](TRADEMARKS.md)). The canonical distribution is this repository and its signed
+releases (`SHA256SUMS`).
 <!-- /license-governance -->
 
 The license is the legal instrument; this file is the human explanation.

@@ -9,7 +9,7 @@ Claude Code · Cursor · Gemini CLI · GitHub Copilot · Google Antigravity · W
 
 [![CI](https://github.com/RATEESHK/ai-sandbox/actions/workflows/ci.yml/badge.svg)](https://github.com/RATEESHK/ai-sandbox/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/RATEESHK/ai-sandbox?display_name=tag)](https://github.com/RATEESHK/ai-sandbox/releases)
-<!-- license-badge --> [![License: AGPL-3.0-or-later or commercial](https://img.shields.io/badge/license-AGPL--3.0--or--later%20%7C%20commercial-blue)](LICENSING.md) <!-- /license-badge -->
+<!-- license-badge --> [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSING.md) <!-- /license-badge -->
 [![Python 3.8+ or no Python](https://img.shields.io/badge/python-3.8%2B%20or%20none-informational)](docs/install.md)
 [![Windows · macOS · Linux · WSL](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20WSL-lightgrey)](docs/install.md)
 
@@ -272,12 +272,7 @@ will ask you to sign [CLA.md](CLA.md) on your first PR.
 ## License
 
 <!-- license-section -->
-**Free and open source under the [GNU Affero General Public License v3.0 or later](LICENSE) — or a [commercial license](COMMERCIAL-LICENSE.md) if you want to ship it closed.**
-
-- **Everyone** — individuals, companies, client work, CI — may use it free of charge, including at work. Keep `LICENSE` and `NOTICE` with any copy.
-- **Forks and modified versions** are welcome; the AGPL requires them to stay open (source under the same license), to be marked as modified, and to keep the author attribution in [`NOTICE`](NOTICE).
-- **Companies** that want to bundle a modified version in a proprietary product or service without releasing the source get a commercial license — paid, **or free in exchange for contributing to or maintaining the project** ([COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md)).
-- Using it? Add yourself to [ADOPTERS.md](ADOPTERS.md) — it is how the project gets known and maintained.
+**Open source under the [Apache License 2.0](LICENSE).** Use it anywhere, including in commercial and proprietary products; keep `LICENSE` and the attribution in [`NOTICE`](NOTICE) with any copy, and mark modified files. The names "ai-sandbox" and "aisb" are not licensed for forks or services ([TRADEMARKS.md](TRADEMARKS.md)). Team and enterprise features, support and sponsorship: [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md). Using it? Add yourself to [ADOPTERS.md](ADOPTERS.md).
 
 Details: [LICENSING.md](LICENSING.md) · single-maintainer model: [GOVERNANCE.md](GOVERNANCE.md) · contributions: [CLA.md](CLA.md). Skill packs and plugins you import keep their own licenses, which `aisb` shows and records.
 <!-- /license-section -->

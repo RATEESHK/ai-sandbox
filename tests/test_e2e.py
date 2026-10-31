@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """End-to-end tests of the CLI on the current OS (runs in CI on Linux, macOS and Windows).
 

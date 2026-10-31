@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """Installer / sync: creates the SSOT, the runtime pieces (.venv or standalone build), and fans everything out."""
 from __future__ import annotations

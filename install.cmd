@@ -1,5 +1,5 @@
 @echo off
-rem SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+rem SPDX-License-Identifier: Apache-2.0
 rem ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 rem ai-sandbox bootstrap for Windows - plain cmd.exe, no PowerShell, no Python required.
 rem

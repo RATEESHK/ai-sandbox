@@ -38,7 +38,7 @@ Each works without the others.
 like a shell history.
 
 <!-- license-faq -->
-**Why AGPL + a commercial license, and not MIT (or "the SQLite license")?** SQLite's code is actually public domain — anyone may copy, modify and sell it; what makes SQLite feel "closed" is governance (one team, no outside commits, a trademark, paid warranty-of-title licenses for corporate legal departments). ai-sandbox copies the governance (`GOVERNANCE.md`) and uses the AGPL-3.0-or-later so that every company's legal team already knows the terms and everyone can use it, at work too, for free. What the AGPL adds over MIT: forks and modified distributions must stay open and keep the author attribution (`NOTICE`), and whoever wants to ship it closed buys a commercial license — or contributes instead of paying (`COMMERCIAL-LICENSE.md`). Everything is explained in `LICENSING.md`; switching is one command (`scripts/set_license.py agpl|gpl|apache|noncommercial|strict`).
+**Why Apache-2.0 (and not "the SQLite license")?** SQLite's code is actually public domain — anyone may copy, modify and sell it; what makes SQLite feel "closed" is governance (one team, no outside commits, a trademark, paid warranty-of-title licenses for corporate legal departments). ai-sandbox copies the governance (`GOVERNANCE.md`) and uses Apache-2.0 for maximum adoption: every company can use it without review, redistributions must carry the attribution in `NOTICE`, and there is a patent grant. See `LICENSING.md`; the maintainer can switch to a copyleft dual-license model for future versions with one command (`scripts/set_license.py agpl`).
 <!-- /license-faq -->
 
 **What about tool updates that change file formats?** The registry (`aisb/targets.py`) carries the

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """Switch the project's license and keep every reference, generated document and source header consistent.
 
@@ -204,7 +204,7 @@ This product includes software developed by %(owner)s: %(attr)s.
 Section 4(d) of the License: when you redistribute this software, with or without modifications, you must
 include a readable copy of this NOTICE file (the attribution notices it contains) within the distribution.
 The names "ai-sandbox" and "aisb" and any project logo identify the original project (section 6: no trademark
-license is granted); please do not use them for modified versions.
+license is granted). Modified versions and services may not use them: see TRADEMARKS.md.
 """ % {"owner": OWNER_NAME, "attr": attribution(url)}
     # polyform
     return head + """Required Notice: Copyright (c) %(year)s %(owner)s (%(url)s)
@@ -338,7 +338,7 @@ proprietary products, as long as they follow the license.
 | Use it anywhere, including at work and in proprietary products | yes | nothing |
 | Commit the installed files into your repositories and share them | yes | the files keep their headers (they already do) |
 | Redistribute it, modified or not, in source or binary form | yes | include `LICENSE`; include the attribution in [`NOTICE`](NOTICE) (section 4(d)); state in modified files that you changed them; keep the copyright and license notices |
-| Publish a fork or a derived tool | yes | same as above; please give it another name (section 6 grants no trademark rights) |
+| Publish a fork or a derived tool | yes | same as above, under **its own name** (section 6 grants no trademark rights; see [TRADEMARKS.md](TRADEMARKS.md)) |
 | Make a closed-source product out of it | yes | same as above — Apache-2.0 has no copyleft |
 
 ## Attribution
@@ -480,6 +480,13 @@ ai-sandbox is open source under the Apache License 2.0. **No commercial license 
 may use, modify, redistribute and sell it, in open or proprietary products, as long as they keep `LICENSE`,
 include the attribution in `NOTICE` (section 4(d)) and mark modified files (`LICENSING.md`).
 
+## Open core: what stays commercial
+
+The local CLI and guard are Apache-2.0 and stay that way. Team and enterprise components built later
+(central policy server, signed policy distribution, audit-log export to SIEM / OpenTelemetry, SSO, org
+dashboard, compliance evidence reports) are **not** part of this repository and are offered under a separate
+commercial license by the maintainer.
+
 ## What the maintainer offers organisations
 
 - **Support and maintenance agreements** — a named target (tool) kept working, response times, upgrades.
@@ -545,7 +552,7 @@ def gen_readme_section(v):
 
 Details: [LICENSING.md](LICENSING.md) · single-maintainer model: [GOVERNANCE.md](GOVERNANCE.md) · contributions: [CLA.md](CLA.md). Skill packs and plugins you import keep their own licenses, which `aisb` shows and records.""" % {"title": v["title"], "gnu_short": gnu_short}
     if f == "permissive":
-        return """**Open source under the [Apache License 2.0](LICENSE).** Use it anywhere, including in commercial and proprietary products; keep `LICENSE` and the attribution in [`NOTICE`](NOTICE) with any copy, and mark modified files. No commercial license exists or is needed — support, sponsorship and contribution plans: [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md). Using it? Add yourself to [ADOPTERS.md](ADOPTERS.md).
+        return """**Open source under the [Apache License 2.0](LICENSE).** Use it anywhere, including in commercial and proprietary products; keep `LICENSE` and the attribution in [`NOTICE`](NOTICE) with any copy, and mark modified files. The names "ai-sandbox" and "aisb" are not licensed for forks or services ([TRADEMARKS.md](TRADEMARKS.md)). Team and enterprise features, support and sponsorship: [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md). Using it? Add yourself to [ADOPTERS.md](ADOPTERS.md).
 
 Details: [LICENSING.md](LICENSING.md) · single-maintainer model: [GOVERNANCE.md](GOVERNANCE.md) · contributions: [CLA.md](CLA.md). Skill packs and plugins you import keep their own licenses, which `aisb` shows and records."""
     strict = v["key"] == "strict"
@@ -594,7 +601,8 @@ not called "ai-sandbox" or "aisb". The canonical distribution is this repository
     if f == "permissive":
         return """The license (`LICENSE` + `NOTICE`) allows forks, modified versions and proprietary derivatives as long as the
 license and the attribution notice travel with them and modified files are marked. Please do not call a modified
-version "ai-sandbox" or "aisb". The canonical distribution is this repository and its signed releases (`SHA256SUMS`)."""
+version "ai-sandbox" or "aisb" ([TRADEMARKS.md](TRADEMARKS.md)). The canonical distribution is this repository and its signed
+releases (`SHA256SUMS`)."""
     return """What is not allowed without a written license (`COMMERCIAL-LICENSE.md`): commercial use; publishing modified
 versions, forks meant to be used instead of the canonical release, repackaged builds, or hosted/managed versions
 (%(strict)s); using the names "ai-sandbox" / "aisb" or the project's logo for anything other than the canonical

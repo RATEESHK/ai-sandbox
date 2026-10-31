@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-ai-sandbox-Commercial
+# SPDX-License-Identifier: Apache-2.0
 # ai-sandbox - Copyright (c) 2026 Rateesh Koganti - https://github.com/RATEESHK/ai-sandbox - see LICENSE and NOTICE
 """`aisb doctor <target>`: one command per tool. Local, reversible fixes are applied inside the project
 (with --fix); anything that lives outside the project (caches, app state, IDE commands) is PRINTED with exact paths
